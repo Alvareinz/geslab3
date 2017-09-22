@@ -1,0 +1,37 @@
+<%= form_with(model: hardware, local: true) do |form| %>
+  <% if hardware.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hardware.errors.count, "error") %> prohibited this hardware from being saved:</h2>
+
+      <ul>
+      <% hardware.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :serial %>
+    <%= form.text_field :serial, id: :hardware_serial %>
+  </div>
+
+  <div class="field">
+    <%= form.label :component_type %>
+    <%= form.text_field :component_type, id: :hardware_component_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :hardware_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, id: :hardware_comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

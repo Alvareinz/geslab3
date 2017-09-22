@@ -1,0 +1,52 @@
+<%= form_with(model: user, local: true) do |form| %>
+<% if user.errors.any? %>
+<div id="Errores encontrados">
+  <h2> Corregir los siguientes errores</h2>
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div>
+      <%= form.label :Nombre %>
+      <br/>
+      <%= form.text_field :name, id: :user_name %>
+    </div>
+    <div>
+      <%= form.label :email %>
+      <br/>
+      <%= form.text_field :email, id: :user_email %>
+    </div>
+    <div>
+      <%= form.label :Ubicación %>
+      <br/>
+      <%= form.text_field :location, id: :user_location %>
+    </div>
+    <div>
+      <%= form.label :Perfil %>
+      <br/>
+      <%= form.text_field :profile, id: :user_profile %>
+    </div>
+    <div>
+      <%= form.label :password %>
+      <br/>
+      <%= form.password_field :password %>
+    </div>
+    <div>
+      <%= form.label :Confirmar_password %>
+      <br/>
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+</div>
+<% end %>
